@@ -30,9 +30,5 @@ import './index.css';
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
-// import './app';
+ import './app';
 
-import { createRoot } from 'react-dom/client';
-
-const root = createRoot(document.body);
-root.render(<h2>Hello from React! again</h2>);

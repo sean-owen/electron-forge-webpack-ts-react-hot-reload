@@ -21,7 +21,7 @@ const config: ForgeConfig = {
     new AutoUnpackNativesPlugin({}),
     new WebpackPlugin({
       devServer: {
-        // hot: true,
+        hot: true,
         liveReload: false
       },
       mainConfig,
@@ -30,12 +30,15 @@ const config: ForgeConfig = {
         entryPoints: [
           {
             html: './src/index.html',
-            js: './src/renderer.tsx',
+            js: './src/renderer.ts',
             name: 'main_window',
             preload: {
               js: './src/preload.ts',
-              config: {} // => add this
-            },
+              config: {
+                ...rendererConfig,
+                plugins: [],
+              },
+            }
           },
         ],
       },
